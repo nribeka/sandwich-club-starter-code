@@ -5,7 +5,9 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -76,10 +78,26 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI(Sandwich sandwich, ActivityDetailBinding activityDetailBinding) {
-        activityDetailBinding.originTv.setText(sandwich.getPlaceOfOrigin());
         activityDetailBinding.descriptionTv.setText(sandwich.getDescription());
-        activityDetailBinding.alsoKnownTv.setText(concatenate(sandwich.getAlsoKnownAs()));
+        activityDetailBinding.imageIv.setContentDescription(sandwich.getMainName());
         activityDetailBinding.ingredientsTv.setText(concatenate(sandwich.getIngredients()));
+        if (!sandwich.getAlsoKnownAs().isEmpty()) {
+            activityDetailBinding.alsoKnownLabelTv.setVisibility(View.VISIBLE);
+            activityDetailBinding.alsoKnownTv.setVisibility(View.VISIBLE);
+            activityDetailBinding.alsoKnownTv.setText(concatenate(sandwich.getAlsoKnownAs()));
+        } else {
+            activityDetailBinding.alsoKnownLabelTv.setVisibility(View.GONE);
+            activityDetailBinding.alsoKnownTv.setVisibility(View.GONE);
+        }
+
+        if (!TextUtils.isEmpty(sandwich.getPlaceOfOrigin())) {
+            activityDetailBinding.originLabelTv.setVisibility(View.VISIBLE);
+            activityDetailBinding.originTv.setVisibility(View.VISIBLE);
+            activityDetailBinding.originTv.setText(sandwich.getPlaceOfOrigin());
+        } else {
+            activityDetailBinding.originLabelTv.setVisibility(View.GONE);
+            activityDetailBinding.originTv.setVisibility(View.GONE);
+        }
     }
 
     private String concatenate(List<String> stringParts) {

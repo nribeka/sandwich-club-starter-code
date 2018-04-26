@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/description_label_tv"
                 app:layout_constraintTop_toBottomOf="@+id/description_label_tv"
@@ -57,7 +57,6 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/detail_ingredients_label"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/description_tv"
                 app:layout_constraintTop_toBottomOf="@+id/description_tv" />
 
@@ -67,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/ingredients_label_tv"
                 app:layout_constraintTop_toBottomOf="@+id/ingredients_label_tv"
@@ -88,7 +87,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/also_known_label_tv"
                 app:layout_constraintTop_toBottomOf="@+id/also_known_label_tv"
                 tools:text="Bosner" />
@@ -108,7 +106,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/origin_label_tv"
                 app:layout_constraintTop_toBottomOf="@+id/origin_label_tv"
                 tools:text="Austria" />
