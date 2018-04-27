@@ -23,6 +23,8 @@ public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
+    private static final String STRING_SEPARATOR = ", ";
+    private static final String EMPTY_STRING = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,8 @@ public class DetailActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        ActivityDetailBinding activityDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
+        ActivityDetailBinding activityDetailBinding =
+                DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -101,10 +104,10 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private String concatenate(List<String> stringParts) {
-        String concatenatedParts = "";
+        String concatenatedParts = EMPTY_STRING;
         for (String stringPart : stringParts) {
-            if (!"".equalsIgnoreCase(concatenatedParts)) {
-                concatenatedParts = concatenatedParts + ", ";
+            if (!EMPTY_STRING.equalsIgnoreCase(concatenatedParts)) {
+                concatenatedParts = concatenatedParts + STRING_SEPARATOR;
             }
             concatenatedParts = concatenatedParts + stringPart;
         }

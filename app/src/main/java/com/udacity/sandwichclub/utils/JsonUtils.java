@@ -11,18 +11,28 @@ import java.util.List;
 
 public class JsonUtils {
 
+    private static final String IMAGE_PROPERTY = "image";
+
+    private static final String NAME_PROPERTY = "name";
+    private static final String MAIN_NAME_PROPERTY = "mainName";
+    private static final String ALSO_KNOWN_AS_PROPERTY = "alsoKnownAs";
+    
+    private static final String DESCRIPTION_PROPERTY = "description";
+    private static final String PLACE_OF_ORIGIN_PROPERTY = "placeOfOrigin";
+    private static final String INGREDIENTS_PROPERTY = "ingredients";
+
     public static Sandwich parseSandwichJson(String json) throws JSONException {
         JSONObject jsonSandwich = new JSONObject(json);
         Sandwich sandwich = new Sandwich();
-        sandwich.setImage(jsonSandwich.getString("image"));
+        sandwich.setImage(jsonSandwich.getString(IMAGE_PROPERTY));
 
-        JSONObject nameObject = jsonSandwich.getJSONObject("name");
-        sandwich.setMainName(nameObject.getString("mainName"));
-        sandwich.setAlsoKnownAs(convertToList(nameObject.getJSONArray("alsoKnownAs")));
+        JSONObject nameObject = jsonSandwich.getJSONObject(NAME_PROPERTY);
+        sandwich.setMainName(nameObject.getString(MAIN_NAME_PROPERTY));
+        sandwich.setAlsoKnownAs(convertToList(nameObject.getJSONArray(ALSO_KNOWN_AS_PROPERTY)));
 
-        sandwich.setDescription(jsonSandwich.getString("description"));
-        sandwich.setPlaceOfOrigin(jsonSandwich.getString("placeOfOrigin"));
-        sandwich.setIngredients(convertToList(jsonSandwich.getJSONArray("ingredients")));
+        sandwich.setDescription(jsonSandwich.getString(DESCRIPTION_PROPERTY));
+        sandwich.setPlaceOfOrigin(jsonSandwich.getString(PLACE_OF_ORIGIN_PROPERTY));
+        sandwich.setIngredients(convertToList(jsonSandwich.getJSONArray(INGREDIENTS_PROPERTY)));
         return sandwich;
     }
 
