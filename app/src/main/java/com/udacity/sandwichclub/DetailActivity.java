@@ -78,25 +78,25 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI(Sandwich sandwich, ActivityDetailBinding activityDetailBinding) {
-        activityDetailBinding.descriptionTv.setText(sandwich.getDescription());
         activityDetailBinding.imageIv.setContentDescription(sandwich.getMainName());
-        activityDetailBinding.ingredientsTv.setText(concatenate(sandwich.getIngredients()));
+        activityDetailBinding.detailElements.descriptionTv.setText(sandwich.getDescription());
+        activityDetailBinding.detailElements.ingredientsTv.setText(concatenate(sandwich.getIngredients()));
         if (!sandwich.getAlsoKnownAs().isEmpty()) {
-            activityDetailBinding.alsoKnownLabelTv.setVisibility(View.VISIBLE);
-            activityDetailBinding.alsoKnownTv.setVisibility(View.VISIBLE);
-            activityDetailBinding.alsoKnownTv.setText(concatenate(sandwich.getAlsoKnownAs()));
+            activityDetailBinding.detailElements.alsoKnownLabelTv.setVisibility(View.VISIBLE);
+            activityDetailBinding.detailElements.alsoKnownTv.setVisibility(View.VISIBLE);
+            activityDetailBinding.detailElements.alsoKnownTv.setText(concatenate(sandwich.getAlsoKnownAs()));
         } else {
-            activityDetailBinding.alsoKnownLabelTv.setVisibility(View.GONE);
-            activityDetailBinding.alsoKnownTv.setVisibility(View.GONE);
+            activityDetailBinding.detailElements.alsoKnownLabelTv.setVisibility(View.GONE);
+            activityDetailBinding.detailElements.alsoKnownTv.setVisibility(View.GONE);
         }
 
         if (!TextUtils.isEmpty(sandwich.getPlaceOfOrigin())) {
-            activityDetailBinding.originLabelTv.setVisibility(View.VISIBLE);
-            activityDetailBinding.originTv.setVisibility(View.VISIBLE);
-            activityDetailBinding.originTv.setText(sandwich.getPlaceOfOrigin());
+            activityDetailBinding.detailElements.originLabelTv.setVisibility(View.VISIBLE);
+            activityDetailBinding.detailElements.originTv.setVisibility(View.VISIBLE);
+            activityDetailBinding.detailElements.originTv.setText(sandwich.getPlaceOfOrigin());
         } else {
-            activityDetailBinding.originLabelTv.setVisibility(View.GONE);
-            activityDetailBinding.originTv.setVisibility(View.GONE);
+            activityDetailBinding.detailElements.originLabelTv.setVisibility(View.GONE);
+            activityDetailBinding.detailElements.originTv.setVisibility(View.GONE);
         }
     }
 
