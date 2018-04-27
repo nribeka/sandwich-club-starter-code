@@ -22,8 +22,8 @@ public class JsonUtils {
     private static final String INGREDIENTS_PROPERTY = "ingredients";
 
     public static Sandwich parseSandwichJson(String json) throws JSONException {
-        JSONObject jsonSandwich = new JSONObject(json);
         Sandwich sandwich = new Sandwich();
+        JSONObject jsonSandwich = new JSONObject(json);
         sandwich.setImage(jsonSandwich.getString(IMAGE_PROPERTY));
 
         JSONObject nameObject = jsonSandwich.getJSONObject(NAME_PROPERTY);
